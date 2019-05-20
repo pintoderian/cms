@@ -1,0 +1,243 @@
+/*@import 'variables';
+@import '~bootstrap/scss/bootstrap';
+@import '~sweetalert2/src/sweetalert2';
+
+@import 'elements/card';
+@import 'elements/navbar';
+@import 'elements/buttons';
+@import 'elements/transitions';
+*/
+// plugins css
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "~bootstrap-vue/dist/bootstrap-vue.css";
+@import "~nvd3/build/nv.d3.min.css";
+@import "~vue-event-calendar/dist/style.css";
+@import "~vue-hljs/dist/vue-hljs.min.css";
+//@import "@agametov/vueditor/dist/style/vueditor.min.css";
+//@import "~pc-bootstrap4-datetimepicker/build/css/bootstrap-datetimepicker.css";
+//@import "~simple-line-icons/css/simple-line-icons.css";
+//@import "~flag-icon-css/css/flag-icon.min.css";
+@import "~bootstrap-social/bootstrap-social.css";
+//@import "~ionicons/dist/css/ionicons.min.css";
+//@import "~vue-good-table/dist/vue-good-table.css";
+//@import "~fullcalendar/dist/fullcalendar.css";
+@import '~vuejs-noty/dist/vuejs-noty.css';
+// color admin css
+@import "assets/css/default/style.min.css";
+@import "assets/css/default/style-responsive.min.css";
+@import "assets/css/default/theme/default.css";
+@import "assets/css/style.css";
+
+.overflow-scroll{
+    overflow-x: hidden!important;
+    &::-webkit-scrollbar {
+        width: 8px;     /* Tamaño del scroll en vertical */
+        height: 0px;
+    }
+    &::-webkit-scrollbar-thumb {
+        background: #ccc;
+        border-radius: 4px;
+    }
+    
+    /* Cambiamos el fondo y agregamos una sombra cuando esté en hover */
+    &::-webkit-scrollbar-thumb:hover {
+        background: #b3b3b3;
+        box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+    }
+    
+    /* Cambiamos el fondo cuando esté en active */
+    &::-webkit-scrollbar-thumb:active {
+        background-color: #999999;
+    }
+    &::-webkit-scrollbar-track {
+        border-radius: 4px;
+    }
+}
+
+/*
+Loader
+*/
+.sk-cube-grid {
+    width: 40px;
+    height: 40px;
+    margin: 100px auto;
+}
+.sk-cube-grid .sk-cube {
+    width: 33%;
+    height: 33%;
+    background-color: #00b19d;
+    float: left;
+    -webkit-animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
+    animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
+}
+.sk-cube-grid .sk-cube1 {
+    -webkit-animation-delay: 0.2s;
+    animation-delay: 0.2s;
+}
+.sk-cube-grid .sk-cube2 {
+    -webkit-animation-delay: 0.3s;
+    animation-delay: 0.3s;
+}
+.sk-cube-grid .sk-cube3 {
+    -webkit-animation-delay: 0.4s;
+    animation-delay: 0.4s;
+}
+.sk-cube-grid .sk-cube4 {
+    -webkit-animation-delay: 0.1s;
+    animation-delay: 0.1s;
+}
+.sk-cube-grid .sk-cube5 {
+    -webkit-animation-delay: 0.2s;
+    animation-delay: 0.2s;
+}
+.sk-cube-grid .sk-cube6 {
+    -webkit-animation-delay: 0.3s;
+    animation-delay: 0.3s;
+}
+.sk-cube-grid .sk-cube7 {
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s;
+}
+.sk-cube-grid .sk-cube8 {
+    -webkit-animation-delay: 0.1s;
+    animation-delay: 0.1s;
+}
+.sk-cube-grid .sk-cube9 {
+    -webkit-animation-delay: 0.2s;
+    animation-delay: 0.2s;
+}
+@-webkit-keyframes sk-cubeGridScaleDelay {
+    0%, 70%, 100% {
+        -webkit-transform: scale3D(1, 1, 1);
+        transform: scale3D(1, 1, 1);
+   }
+    35% {
+        -webkit-transform: scale3D(0, 0, 1);
+        transform: scale3D(0, 0, 1);
+   }
+}
+@keyframes sk-cubeGridScaleDelay {
+    0%, 70%, 100% {
+        -webkit-transform: scale3D(1, 1, 1);
+        transform: scale3D(1, 1, 1);
+   }
+    35% {
+        -webkit-transform: scale3D(0, 0, 1);
+        transform: scale3D(0, 0, 1);
+   }
+}
+/*
+Estilos adicionales del panel
+*/
+.title-btn{
+    margin-top: -4px;
+}
+.pagination-table {
+    background: #fcfafa;
+    padding: 8px 10px 0px;
+    border-radius: 6px;
+    height: 40px;
+    .b-pagination {
+        float: right;
+    }
+    .total {
+        font-weight: bold;
+        text-transform: uppercase;
+        padding-top: 5px;
+        display: block;
+    }
+}
+.help-block{
+    color: #ff5b57;
+}
+#permissions {
+    margin-top: 12px;
+    max-height: 325px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    .custom-control.custom-control-inline.custom-checkbox{
+        width: 130px;
+    }
+    .custom-control-label {
+        padding-top: 2px;
+    }
+}
+/*Logs*/
+.badge.badge-env,
+.badge.badge-level-all,
+.badge.badge-level-emergency,
+.badge.badge-level-alert,
+.badge.badge-level-critical,
+.badge.badge-level-error,
+.badge.badge-level-warning,
+.badge.badge-level-notice,
+.badge.badge-level-info,
+.badge.badge-level-debug,
+.badge.empty {
+color: #FFF;
+text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+.badge.badge-level-all,
+.box.level-all {
+background-color: #8A8A8A;
+}
+
+.badge.badge-level-emergency,
+.box.level-emergency {
+background-color: #B71C1C;
+}
+
+.badge.badge-level-alert,
+.box.level-alert  {
+background-color: #D32F2F;
+}
+
+.badge.badge-level-critical,
+.box.level-critical {
+background-color: #F44336;
+}
+
+.badge.badge-level-error,
+.box.level-error {
+background-color: #FF5722;
+}
+
+.badge.badge-level-warning,
+.box.level-warning {
+background-color: #FF9100;
+}
+
+.badge.badge-level-notice,
+.box.level-notice {
+background-color: #4CAF50;
+}
+
+.badge.badge-level-info,
+.box.level-info {
+    background-color: #1976D2;
+}
+
+.badge.badge-level-debug,
+.box.level-debug {
+    background-color: #90CAF9;
+}
+
+.badge.empty,
+.box.empty {
+    background-color: #D1D1D1;
+}
+
+.badge.badge-env {
+    background-color: #6A1B9A;
+}
+.error-log {
+    max-height: 350px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    background: #222;
+    padding: 10px;
+    color: #f9ec7d;
+    font-size: 14px;
+    word-break: break-word;
+}
