@@ -11,6 +11,7 @@ const SettingsProfile = () => import("~/pages/settings/profile").then(m => m.def
 const SettingsPassword = () => import("~/pages/settings/password").then(m => m.default || m);
 
 const SettingsCatalog = () => import("~/pages/core/catalog").then(m => m.default || m);
+const SettingsCatalogDetails = () => import("~/pages/core/catalog_details").then(m => m.default || m);
 
 const Roles = () => import("~/pages/core/roles").then(m => m.default || m);
 const Users = () => import("~/pages/core/users").then(m => m.default || m);
@@ -60,6 +61,7 @@ const principal = [
     ]
   },
   { path: "/settings/catalogs", name: "settings.catalogs", component: SettingsCatalog },
+  { path: "/settings/catalog-details/:id", name: "settings.catalog_details", component: SettingsCatalogDetails },
   { path: "*", component: NotFound }
 ];
 

@@ -17,6 +17,7 @@ class CreateCatalogs extends Migration
             $table->increments('id');
             $table->string('name')->nullable();
             $table->string('slug')->nullable();
+            $table->integer('status')->default(1);
             $table->timestamps();
         });
         Schema::create('catalog_details', function (Blueprint $table) {
@@ -25,6 +26,7 @@ class CreateCatalogs extends Migration
             $table->foreign('catalog_id')->references('id')->on('catalog')->onDelete('cascade');
             $table->string('name')->nullable();
             $table->string('slug')->nullable();
+            $table->integer('status')->default(1);
             $table->timestamps();
         });
     }

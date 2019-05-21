@@ -40,6 +40,7 @@ Route::group(['middleware' => 'auth:api'], function () {
             Route::get('/system/{fecha}/{tipo}', 'SystemController@view_log');
         });
         Route::apiResource('catalogs', 'CatalogController');
+        Route::apiResource('catalog-details', 'CatalogDetailsController')->except(['index']);
         /**
          * Selects
          */

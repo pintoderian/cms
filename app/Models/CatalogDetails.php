@@ -14,7 +14,8 @@ class CatalogDetails extends Model
     protected $fillable = [
         'catalog_id',
         'name',
-        'slug'
+        'slug',
+        'status'
     ];
 
     /**
@@ -30,7 +31,17 @@ class CatalogDetails extends Model
             ]
         ];
     }
+    /**
+     * @param $query
+     * @return mixed
+     */
+    public function scopeIsActive($query){
+        return $query->where("status", 1);
+    }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function catalog()
     {
         return $this->belongsTo('App\Models\Catalog', 'catalog_id');

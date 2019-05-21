@@ -8,6 +8,12 @@ use App\Http\Controllers\Controller;
 
 class CatalogController extends Controller
 {
+    public function __construct(){
+        $this->middleware('permission:view_catalog')->only(['index', 'show']);
+        $this->middleware('permission:add_catalog')->only(['store']);
+        $this->middleware('permission:edit_catalog')->only(['update']);
+        $this->middleware('permission:delete_catalog')->only('destroy');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -17,9 +23,9 @@ class CatalogController extends Controller
     {
         return Catalog::where(function($query) use($request){
             if(isset($request->texto)){
-                $query->where('name', 'like', '%' . $texto . '%');
+                $query->where('name', 'like', '%' . $request->texto . '%');
             }
-        })->paginate(10);
+        })->isActive()->paginate(10);
     }
 
     /**
@@ -44,7 +50,7 @@ class CatalogController extends Controller
      */
     public function show($id)
     {
-        return Catalog::with('details')->findOrFail($id);
+        return Catalog::findOrFail($id);
     }
 
     /**
@@ -71,6 +77,6 @@ class CatalogController extends Controller
      */
     public function destroy($id)
     {
-        Catalog::findOrFail($id)->delete();
+        Catalog::findOrFail($id)->update(["status" => 0]);
     }
 }

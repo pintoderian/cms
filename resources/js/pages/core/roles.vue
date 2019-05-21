@@ -172,7 +172,6 @@ export default {
     },
     update_data: function() {
       this.form.put("/api/core/roles/" + this.form.id).then(({ data }) => {
-        this.$refs.guardarModal.hide();
         this.cancel_modal();
         this.$refs.CoreTable.vueTable();
         this.$message("update");

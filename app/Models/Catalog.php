@@ -13,7 +13,8 @@ class Catalog extends Model
 
     protected $fillable = [
         'name',
-        'slug'
+        'slug',
+        'status'
     ];
 
     /**
@@ -30,6 +31,16 @@ class Catalog extends Model
         ];
     }
 
+    /**
+     * @param $query
+     * @return mixed
+     */
+    public function scopeIsActive($query){
+        return $query->where("status", 1);
+    }
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function details()
     {
         return $this->hasMany('App\Models\CatalogDetails', 'catalog_id', 'id');
